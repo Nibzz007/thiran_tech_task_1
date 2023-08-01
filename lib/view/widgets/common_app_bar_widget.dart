@@ -1,35 +1,28 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/app_color.dart';
-import '../../utils/app_images.dart';
-
 class CommonAppBarWidget extends StatelessWidget {
   const CommonAppBarWidget({
     super.key,
-    required this.height,
+    required this.height, required this.widget, required this.widget1, required this.horizontal,
   });
 
   final double height;
+  final Widget widget;
+  final Widget widget1;
+  final double horizontal;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height * 0.1,
       decoration: const BoxDecoration(),
-      child: const Padding(
-        padding: EdgeInsets.all(10),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: horizontal),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage(image6),
-            ),
-            Icon(
-              Icons.search,
-              color: kBlack,
-              size: 30,
-            ),
+            widget,
+            widget1
           ],
         ),
       ),

@@ -10,7 +10,7 @@ class ContainerWidget extends StatelessWidget {
     required this.right,
     required this.color,
     required this.icon,
-    required this.data,
+    required this.data, required this.left,
   });
 
   final double height;
@@ -19,11 +19,13 @@ class ContainerWidget extends StatelessWidget {
   final Color color;
   final IconData icon;
   final String data;
+  final double left;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: 10,
+        left: left,
         right: right,
       ),
       child: Container(

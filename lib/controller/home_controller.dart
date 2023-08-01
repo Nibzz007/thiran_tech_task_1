@@ -9,6 +9,10 @@ class HomeController extends GetxController {
     'Dashboard Design',
     'UI/UX Design',
   ];
-  List<double> indicatorList = [0.8,1,0.3];
-  List<Color> backgroundColor = [indicatorColor1,indicatorColor2,indicatorColor3];
+  List<double> indicatorList = [0.8, 1, 0.3];
+  List<Color> backgroundColor = [
+    indicatorColor1,
+    indicatorColor2,
+    indicatorColor3,
+  ];
 }

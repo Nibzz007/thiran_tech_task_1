@@ -5,7 +5,7 @@ import 'package:thiran_tech_task_1/utils/app_color.dart';
 import 'package:thiran_tech_task_1/utils/app_size.dart';
 import 'package:thiran_tech_task_1/view/widgets/common_app_bar_widget.dart';
 import 'package:thiran_tech_task_1/view/widgets/container_widget.dart';
-
+import 'package:thiran_tech_task_1/view/widgets/main_heading_text_widget.dart';
 import '../utils/app_images.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,10 +24,22 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CommonAppBarWidget(height: height),
+              CommonAppBarWidget(
+                horizontal: 15,
+                height: height,
+                widget: const CircleAvatar(
+                  radius: 20,
+                  backgroundImage: AssetImage(image6),
+                ),
+                widget1: const Icon(
+                  Icons.search,
+                  color: kBlack,
+                  size: 30,
+                ),
+              ),
               kHeigt15,
               const Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 15),
                 child: Text(
                   'Hello',
                   style: TextStyle(
@@ -38,15 +50,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               kHeigth10,
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Text(
-                  'Alex Marconi',
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              const MainHeadTextWidget(
+                text: 'Alex Marconi',
               ),
               kHeigt15,
               Row(
@@ -56,6 +61,7 @@ class HomeScreen extends StatelessWidget {
                       height: height,
                       width: width,
                       right: 5,
+                      left: 15,
                       color: containerColor1,
                       icon: Icons.access_time,
                       data: 'In Progress',
@@ -65,7 +71,8 @@ class HomeScreen extends StatelessWidget {
                     child: ContainerWidget(
                       height: height,
                       width: width,
-                      right: 10,
+                      right: 15,
+                      left: 5,
                       color: containerColor2,
                       data: 'Ongoing',
                       icon: Icons.swap_horiz_outlined,
@@ -81,6 +88,7 @@ class HomeScreen extends StatelessWidget {
                       height: height,
                       width: width,
                       right: 5,
+                      left: 15,
                       color: containerColor3,
                       data: 'Completed',
                       icon: Icons.event_available_outlined,
@@ -90,7 +98,8 @@ class HomeScreen extends StatelessWidget {
                     child: ContainerWidget(
                       height: height,
                       width: width,
-                      right: 10,
+                      right: 15,
+                      left: 5,
                       color: containerColor4,
                       data: 'Cancel',
                       icon: Icons.event_busy_outlined,
@@ -101,7 +110,7 @@ class HomeScreen extends StatelessWidget {
               kHeigth25,
               const Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: 10,
+                  horizontal: 15,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,7 +145,11 @@ class HomeScreen extends StatelessWidget {
                   3,
                   (index) => Obx(
                     () => Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 15,
+                        bottom: 10,
+                      ),
                       child: Container(
                         height: height * 0.1,
                         width: double.infinity,
@@ -152,7 +165,7 @@ class HomeScreen extends StatelessWidget {
                                 activeColor: controller.backgroundColor[index],
                                 side: const BorderSide(
                                   width: 1,
-                                  color: checkBoxBorderColor,
+                                  color: kGrey,
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -163,7 +176,7 @@ class HomeScreen extends StatelessWidget {
                                 },
                               ),
                             ),
-                            kWidth10,
+                            kWidth5,
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 10,
@@ -198,8 +211,9 @@ class HomeScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            kWidth30,
+                            kWidth20,
                             const Expanded(
+                              flex: 6,
                               child: Stack(
                                 children: [
                                   Positioned(
@@ -225,11 +239,13 @@ class HomeScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            kWidth10,
-                            const Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              color: kGrey,
-                              size: 25,
+                            const Flexible(
+                              flex: 2,
+                              child: Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                color: kGrey,
+                                size: 25,
+                              ),
                             ),
                           ],
                         ),

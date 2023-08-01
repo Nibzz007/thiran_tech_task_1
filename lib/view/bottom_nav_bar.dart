@@ -14,7 +14,7 @@ class BottomNavBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BottomNavBar(
-        fabElevation: 10,
+        fabElevation: 30,
         notchedRadius: 30,
         fabBackGroundColor: floatingButtonColor,
         centerNotched: true,
@@ -32,7 +32,7 @@ class BottomNavBarWidget extends StatelessWidget {
           BottomBarItem(
             bottomItemSelectedColor: selectedIconColor,
             label: '',
-            screen: const ProjectScreen(),
+            screen: ProjectScreen(),
             selectedIcon: Icons.feed,
           ),
           BottomBarItem(

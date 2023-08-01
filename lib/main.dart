@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:thiran_tech_task_1/view/bottom_nav_bar.dart';
 
 void main(List<String> args) {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: const BottomNavBarWidget(),
       theme: ThemeData(),
