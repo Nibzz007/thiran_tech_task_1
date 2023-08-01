@@ -57,25 +57,61 @@ class HomeScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: ContainerWidget(
-                      height: height,
-                      width: width,
-                      right: 5,
-                      left: 15,
-                      color: containerColor1,
-                      icon: Icons.access_time,
-                      data: 'In Progress',
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          child: ContainerWidget(
+                            height: height,
+                            width: width,
+                            right: 5,
+                            left: 15,
+                            color: containerColor1,
+                            icon: Icons.access_time,
+                            data: 'In Progress',
+                          ),
+                        ),
+                        const Positioned(
+                          left: 40,
+                          bottom: 85,
+                          child: CircleAvatar(
+                            radius: 18,
+                            backgroundColor: containerCircleColor1,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
-                    child: ContainerWidget(
-                      height: height,
-                      width: width,
-                      right: 15,
-                      left: 5,
-                      color: containerColor2,
-                      data: 'Ongoing',
-                      icon: Icons.swap_horiz_outlined,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          child: ContainerWidget(
+                            height: height,
+                            width: width,
+                            right: 15,
+                            left: 5,
+                            color: containerColor2,
+                            data: 'Ongoing',
+                            icon: Icons.swap_horiz_outlined,
+                          ),
+                        ),
+                        Positioned(
+                          left: 5,
+                          top: 70,
+                          right: 155,
+                          child: Container(
+                            height: height * 0.06,
+                            width: width * 0.2,
+                            decoration: const BoxDecoration(
+                              color: containerStackColor2,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(70),
+                                topRight: Radius.circular(30),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -83,26 +119,55 @@ class HomeScreen extends StatelessWidget {
               kHeigth10,
               Row(
                 children: [
+                  kWidth15,
                   Expanded(
-                    child: ContainerWidget(
-                      height: height,
-                      width: width,
-                      right: 5,
-                      left: 15,
-                      color: containerColor3,
-                      data: 'Completed',
-                      icon: Icons.event_available_outlined,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          child: ContainerWidget(
+                            height: height,
+                            width: width,
+                            right: 13,
+                            left: 0,
+                            color: containerColor3,
+                            data: 'Completed',
+                            icon: Icons.event_available_outlined,
+                          ),
+                        ),
+                        const Positioned(
+                          top: 40,
+                          right: 175,
+                          child: CircleAvatar(
+                            radius: 13,
+                            backgroundColor: containerStackColor3,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
-                    child: ContainerWidget(
-                      height: height,
-                      width: width,
-                      right: 15,
-                      left: 5,
-                      color: containerColor4,
-                      data: 'Cancel',
-                      icon: Icons.event_busy_outlined,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          child: ContainerWidget(
+                            height: height,
+                            width: width,
+                            right: 15,
+                            left: 0,
+                            color: containerColor4,
+                            data: 'Cancel',
+                            icon: Icons.event_busy_outlined,
+                          ),
+                        ),
+                        Positioned(
+                          left: 20,
+                          bottom: 85,
+                          child: CircleAvatar(
+                            radius: 18,
+                            backgroundColor: containerColor1,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

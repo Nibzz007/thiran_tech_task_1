@@ -21,3 +21,6 @@ const containerColor4 = Color(0xffFF7649);
 const indicatorColor1 = Color(0xff9296FF);
 const indicatorColor2 = Color(0xffC2EA93);
 const indicatorColor3 = Color(0xffFABE75);
+const containerCircleColor1 = Color(0xffFF996D);
+const containerStackColor2 = Color(0xff797FFF);
+const containerStackColor3 = Color(0xffB2D986);

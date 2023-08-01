@@ -33,7 +33,7 @@ class ContainerWidget extends StatelessWidget {
         width: width * 0.5,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
