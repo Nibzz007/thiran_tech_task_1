@@ -80,7 +80,7 @@ class ProjectScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              kHeigth20,
+              kHeigth10,
               Column(
                 children: List.generate(
                   3,
@@ -103,7 +103,7 @@ class ProjectScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Expanded(
-                                flex: 2,
+                                flex: 3,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -115,12 +115,16 @@ class ProjectScreen extends StatelessWidget {
                                       ),
                                     ),
                                     kHeigth10,
-                                    Text(
-                                      'Today, Shared by - ${controller.checkSubList[index]}',
-                                      style: const TextStyle(
-                                        color: kGrey,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Today, Shared by - ${controller.checkSubList[index]}',
+                                          style: const TextStyle(
+                                              color: kGrey,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14),
+                                        ),
+                                      ],
                                     ),
                                     kHeigt15,
                                     const Text(
@@ -204,11 +208,13 @@ class ProjectScreen extends StatelessWidget {
                                           size: 18,
                                         ),
                                         kWidth10,
-                                        Text(
-                                          '${controller.monthList[index]} ${controller.dateList[index]}, 2021 - ${controller.monthList[index]} ${controller.dateList[index] + 7}, 2021',
-                                          style: const TextStyle(
-                                            color: kGrey,
-                                            fontSize: 12,
+                                        Expanded(
+                                          child: Text(
+                                            '${controller.monthList[index]} ${controller.dateList[index]}, 2021 - ${controller.monthList[index]} ${controller.dateList[index] + 7}, 2021',
+                                            style: const TextStyle(
+                                              color: kGrey,
+                                              fontSize: 12,
+                                            ),
                                           ),
                                         ),
                                       ],

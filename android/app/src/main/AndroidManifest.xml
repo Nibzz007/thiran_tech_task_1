@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="thiran_tech_task_1"
+        android:label="Thiran Tech Task 1"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
