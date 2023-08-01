@@ -1,0 +1,247 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:thiran_tech_task_1/controller/home_controller.dart';
+import 'package:thiran_tech_task_1/utils/app_color.dart';
+import 'package:thiran_tech_task_1/utils/app_size.dart';
+import 'package:thiran_tech_task_1/view/widgets/common_app_bar_widget.dart';
+import 'package:thiran_tech_task_1/view/widgets/container_widget.dart';
+
+import '../utils/app_images.dart';
+
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
+
+  HomeController controller = Get.put(HomeController());
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: scaffoldBackgroundColor,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CommonAppBarWidget(height: height),
+              kHeigt15,
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Hello',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: homeTextColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              kHeigth10,
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  'Alex Marconi',
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              kHeigt15,
+              Row(
+                children: [
+                  Expanded(
+                    child: ContainerWidget(
+                      height: height,
+                      width: width,
+                      right: 5,
+                      color: containerColor1,
+                      icon: Icons.access_time,
+                      data: 'In Progress',
+                    ),
+                  ),
+                  Expanded(
+                    child: ContainerWidget(
+                      height: height,
+                      width: width,
+                      right: 10,
+                      color: containerColor2,
+                      data: 'Ongoing',
+                      icon: Icons.swap_horiz_outlined,
+                    ),
+                  ),
+                ],
+              ),
+              kHeigth10,
+              Row(
+                children: [
+                  Expanded(
+                    child: ContainerWidget(
+                      height: height,
+                      width: width,
+                      right: 5,
+                      color: containerColor3,
+                      data: 'Completed',
+                      icon: Icons.event_available_outlined,
+                    ),
+                  ),
+                  Expanded(
+                    child: ContainerWidget(
+                      height: height,
+                      width: width,
+                      right: 10,
+                      color: containerColor4,
+                      data: 'Cancel',
+                      icon: Icons.event_busy_outlined,
+                    ),
+                  ),
+                ],
+              ),
+              kHeigth25,
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Daily Task',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'All Task',
+                          style: TextStyle(color: kGrey, fontSize: 15),
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_down_outlined,
+                          color: kGrey,
+                          size: 30,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              kHeigth10,
+              Column(
+                children: List.generate(
+                  3,
+                  (index) => Obx(
+                    () => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: height * 0.1,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: kWhite,
+                        ),
+                        child: Row(
+                          children: [
+                            Transform.scale(
+                              scale: 1.4,
+                              child: Checkbox(
+                                activeColor: controller.backgroundColor[index],
+                                side: const BorderSide(
+                                  width: 1,
+                                  color: checkBoxBorderColor,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                value: controller.checkboxStates[index],
+                                onChanged: (value) {
+                                  controller.checkboxStates[index] = value!;
+                                },
+                              ),
+                            ),
+                            kWidth10,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    controller.checkList[index],
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: width * 0.45,
+                                    height: height * 0.01,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: LinearProgressIndicator(
+                                        value: controller.indicatorList[index],
+                                        backgroundColor:
+                                            progressBarBackgroundColor,
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          controller.backgroundColor[index],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            kWidth30,
+                            const Expanded(
+                              child: Stack(
+                                children: [
+                                  Positioned(
+                                    child: CircleAvatar(
+                                      backgroundImage: AssetImage(image1),
+                                      radius: 18,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 20,
+                                    child: CircleAvatar(
+                                      radius: 18,
+                                      backgroundImage: AssetImage(image3),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 40,
+                                    child: CircleAvatar(
+                                      radius: 18,
+                                      backgroundImage: AssetImage(image5),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            kWidth10,
+                            const Icon(
+                              Icons.arrow_forward_ios_outlined,
+                              color: kGrey,
+                              size: 25,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
